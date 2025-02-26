@@ -1,5 +1,6 @@
 import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr'; // dist/ssr é para importar o ícone no servidor
 import  dogImg  from '../../../public/hero-dog.webp';
+import catImg from '../../../public/cat-hero.png';
 import Image from 'next/image';
 
 export function Hero() {
@@ -15,9 +16,8 @@ export function Hero() {
           priority
           className='object-cover opacity-60 lg:hidden'
         />
-        <div className='obsolute inset-0 bg-black opacity-40 md:hidden'></div>
+        <div className='absolute inset-0 bg-black opacity-40 md:hidden'></div>
       </div>
-
 
       <div className='container mx-auto pt-16 pb-16 md:pb-0 px-4 relative'>
 
@@ -42,6 +42,17 @@ export function Hero() {
               <p className="text-sm mb-4">
                 <b className="bg-black text-white px-2 py-1 rounded-md">5%</b> de desconto na primeira compra.
               </p>
+
+              <div className='flex mt-4'>
+                <div className='w-32 hidden lg:block'>
+                  <Image
+                    src={catImg}
+                    alt='Foto do gato'
+                    quality={100}
+                    className='object-fill'
+                  />
+                </div>
+              </div>
             </div>
 
           </div>
