@@ -61,7 +61,12 @@ export function Services() {
   
   return (
     <section className="bg-white py-16">
-      <div className="container mx-auto px-4">
+      <div 
+        className="container mx-auto px-4" 
+        data-aos="fade-left"
+        data-aos-anchor="#example-anchor"
+        data-aos-offset="500"
+        data-aos-duration="500">
         
         <h2 className="text-4xl font-bold mb-12">Serviços</h2>
           

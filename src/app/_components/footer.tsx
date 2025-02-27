@@ -20,7 +20,11 @@ export function Footer() {
     <section className='bg-[#e84c3d] py-16 text-white'>
       <div className='container mx-auto px-4'>
         
-        <div className='border-b border-white/20 pb-8'>
+        <div 
+          className='border-b border-white/20 pb-8'
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+        >
           <h4 className='text-3xl font-semibold mb-8 text-center'>Marcas que trabalhamos</h4>
 
           <div className='grid grid-cols-2 lg:grid-cols-6 gap-8'>

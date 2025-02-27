@@ -11,7 +11,7 @@ export function About() {
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
           
-          <div className='relative'>
+          <div className='relative' data-aos="fade-up" data-aos-delay="350">
             <div className="relative w-full h-[400px] rounded-3xl overflow-hidden">
               <Image
                 src={about1Img}
@@ -23,7 +23,7 @@ export function About() {
               />
             </div>
             
-            <div className="absolute w-40 h-40 right-4 -bottom-8 rounded-lg border-4 overflow-hidden border-white">
+            <div data-aos="fade-up-right" className="absolute w-40 h-40 right-4 -bottom-8 rounded-lg border-4 overflow-hidden border-white">
               <Image
                 src={about2Img}
                 alt="Foto de um cachorro"
@@ -34,7 +34,7 @@ export function About() {
             </div>
           </div>
 
-          <div className='space-y-6 mt-10'>
+          <div className='space-y-6 mt-10' data-aos="zoom-in-up">
             <h2 className='text-4xl font-bold'>SOBRE</h2>
             
             <p>
@@ -56,7 +56,7 @@ export function About() {
               </li>
             </ul>
 
-            <div className='flex gap-2'>
+            <div className='flex gap-2' data-aos="zoom-out-up">
               <a 
                 href="#"
                 className='bg-[#E84C3D] text-white flex items-center justify-center w-fit gap-2 px-4 py-2 rounded-md'

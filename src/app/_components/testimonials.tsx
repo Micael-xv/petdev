@@ -44,7 +44,11 @@ export function Testimonials() {
   
   return (
     <section className="bg-[#FFD449] py-16">
-      <div className="container mx-auto px-4">
+      <div 
+        className="container mx-auto px-4"
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+      >
         
         <h2 className="text-4xl text-center font-bold mb-12">Depoimentos</h2>
           
