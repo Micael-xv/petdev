@@ -77,7 +77,8 @@ export function Footer() {
               </a>
 
               <a 
-                href="#"
+                href="https://www.instagram.com/micael_trevisan"
+                target='_blank'
               >
                 <InstagramLogo className='w-8 h-8'/>
               </a>

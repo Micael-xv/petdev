@@ -93,20 +93,24 @@ export function Services() {
 
                     </div>
 
-                    <div className="border-t border-gray-700 pt-4 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-sm">
-                        <Clock className="w-5 h-5"/>
-                        <span>{item.duration}</span>
+                    <div className="border-t border-gray-700 pt-4 flex items-center justify-between flex-col">
+                      <div className="flex justify-between gap-2 text-sm w-full">
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-5 h-5"/>
+                          <span>{item.duration}</span>
+                        </div>
+                        <p>{item.price}</p>
                       </div>
-
-                      <a 
-                        target="_blank"
-                        href={`https://wa.me/5599999999999/?text=Olá, vi no site sobre Banho e tosa e gostaria de mais informações. sobre ${item.title}`}
-                        className="flex items-center justify-center gap-2 hover:bg-red-500 px-4 py-1 rounded-md duration-300"
-                      >
-                        <WhatsappLogo className="w-5 h-5"/>
-                        Entrar em contato
-                      </a>
+                      <div className="flex items-center pt-3 w-full">
+                        <a 
+                          target="_blank"
+                          href={`https://wa.me/5599999999999/?text=Olá, vi no site sobre Banho e tosa e gostaria de agendar um horario. sobre ${item.title}`}
+                          className="flex bg-yellow-400 text-black w-full items-center justify-center gap-2 hover:bg-yellow-500 px-4 py-2 rounded-md duration-300"
+                        >
+                          <WhatsappLogo className="w-5 h-5"/>
+                          Agendar horario
+                        </a>
+                      </div>
                     </div>
 
                   </article>
