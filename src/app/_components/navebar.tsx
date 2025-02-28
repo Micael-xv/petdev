@@ -1,11 +1,10 @@
+"use client";
+import TemporaryDrawer from '../../components/navebar';
+
 export function Navebar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-      </ul>
-    </nav>
-  )
+    <div>
+      <TemporaryDrawer/>
+    </div>
+  );
 }
