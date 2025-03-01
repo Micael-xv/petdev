@@ -12,7 +12,7 @@ export function About() {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
           
           <div className='relative' data-aos="fade-up" data-aos-delay="350">
-            <div className="relative w-full h-[400px] rounded-3xl overflow-hidden">
+            <div className="relative w-full h-[400px] lg:h-[550px] rounded-xl overflow-hidden">
               <Image
                 src={about1Img}
                 alt="Foto de um cachorro"
@@ -26,7 +26,7 @@ export function About() {
             <div data-aos="fade-up-right" className="absolute w-40 h-40 right-4 -bottom-8 rounded-lg border-4 overflow-hidden border-white">
               <Image
                 src={about2Img}
-                alt="Foto de um cachorro"
+                alt="Foto de um gato"
                 fill // o fill é pra preencher o espaço do container
                 quality={100}
                 priority
