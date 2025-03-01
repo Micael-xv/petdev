@@ -64,14 +64,21 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div className="bg-gray-800 relative flex justify-end items-center px-2 py-1 fix z-50">
-      <p className='flex justify-end px-3 text-white'>Bem vindo, Micael</p>
-      <Button onClick={toggleDrawer(true)} className='text-white'>
-        <ListIcon size={isMobile ? '20' : '26'} />
-      </Button>
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
-      </Drawer>
+    <div className="bg-green-600 relative flex justify-end items-center px-2 py-2">
+      <div className='absolute left-0 px-3 font-bold'>
+        <p className='text-white'>PetDev a serviço do cliente</p>
+      </div>
+      <div className='flex items-center'>
+        <div className='flex justify-end px-3'>
+          <p className=' text-white'>Bem vindo, Micael</p>
+        </div>
+        <Button onClick={toggleDrawer(true)} className='text-white'>
+          <ListIcon size={isMobile ? '20' : '32'} />
+        </Button>
+        <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+          {DrawerList}
+        </Drawer>
+      </div>
     </div>
   );
 }
