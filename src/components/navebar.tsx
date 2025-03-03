@@ -86,7 +86,7 @@ export default function TemporaryDrawer() {
         </div>
         <div className="flex items-center">
           <div className="flex justify-end px-3">
-            <p className="text-white">Bem vindo, Micael</p>
+            {!isMobile && <p className="text-white">Bem vindo, Micael</p>}
           </div>
           <Button onClick={toggleDrawer(true)} className="text-white">
             <ListIcon size={isMobile ? "20" : "32"} />
@@ -105,17 +105,20 @@ export default function TemporaryDrawer() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 450,
+            width: isMobile ? "90%" : 'auto',
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 4,
             borderRadius: 5,
           }}
         >
-          <div className="flex justify-end px-3">
+          <div className="flex justify-end pb-5">
+            <div className="flex items-center justify-center w-full">
+              <p className="flex justify-center font-bold ml-10">PETDEV</p>
+            </div>
             <button onClick={handleCloseLogin}><XCircle size={42} /></button>
           </div>
-          <Card>
+          <Card className="border-2 border-black">
             <CardContent>
               <Typography variant="h6" component="div" gutterBottom className="text-center">
                 Login

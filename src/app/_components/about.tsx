@@ -37,7 +37,7 @@ export function About() {
           <div className='space-y-6 mt-10' data-aos="zoom-in-up">
             <h2 className='text-4xl font-bold'>SOBRE</h2>
             
-            <p>
+            <p className='select-none'>
               Em nosso Petshop Online, você encontra tudo o que seu pet precisa: rações, brinquedos, acessórios e produtos de cuidados especiais. Com entrega rápida e segura, garantimos qualidade e carinho para o seu amigo de quatro patas. Navegue e descubra as melhores opções para seu pet!
             </p>
 
