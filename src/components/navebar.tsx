@@ -13,11 +13,9 @@ import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { ListIcon } from "lucide-react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { SignIn, SignOut, XCircle } from "@phosphor-icons/react";
+import { CashRegister, SignIn, SignOut, XCircle } from "@phosphor-icons/react";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -63,11 +61,11 @@ export default function TemporaryDrawer() {
       </List>
       <Divider />
       <List>
-        {["Register"].map((text, index) => (
+        {["Cadastrar-se"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <CashRegister size={32}/>
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
