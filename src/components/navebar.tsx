@@ -1,26 +1,40 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { ListIcon } from 'lucide-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { SignIn, SignOut } from '@phosphor-icons/react';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Modal from "@mui/material/Modal"; // Importando o Modal do MUI
+import TextField from "@mui/material/TextField";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import { ListIcon } from "lucide-react";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { SignIn, SignOut, XCircle } from "@phosphor-icons/react";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
-  const isMobile = useMediaQuery('(max-width:600px)'); // Define o breakpoint para telas menores que 600px
+  const isMobile = useMediaQuery("(max-width:600px)"); // Define o breakpoint para telas menores que 600px
   const [isLoggedIn, setIsLoggedIn] = React.useState(false); // Estado para verificar se o usuário está logado
+  const [openLogin, setOpenLogin] = React.useState(false); // Estado para abrir o modal
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
+  };
+
+  const handleOpenLogin = () => {
+    setOpenLogin(true);
+  };
+
+  const handleCloseLogin = () => {
+    setOpenLogin(false);
   };
 
   const DrawerList = (
@@ -28,7 +42,7 @@ export default function TemporaryDrawer() {
       <List>
         {!isLoggedIn && (
           <ListItem key="Login" disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={handleOpenLogin}> {/* Abre o modal */}
               <ListItemIcon>
                 <SignIn size={32} />
               </ListItemIcon>
@@ -49,7 +63,7 @@ export default function TemporaryDrawer() {
       </List>
       <Divider />
       <List>
-        {['Register'].map((text, index) => (
+        {["Register"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -64,21 +78,73 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div className="bg-green-600 relative flex justify-end items-center px-2 py-2">
-      <div className='absolute left-0 px-3 font-bold'>
-        <p className='text-white'>PetDev a serviço do cliente</p>
-      </div>
-      <div className='flex items-center'>
-        <div className='flex justify-end px-3'>
-          <p className=' text-white'>Bem vindo, Micael</p>
+    <>
+      {/* Navbar */}
+      <div className="bg-green-600 relative flex justify-end items-center px-2 py-2">
+        <div className="absolute left-0 px-3 font-bold">
+          <p className="text-white">PetDev a serviço do cliente</p>
         </div>
-        <Button onClick={toggleDrawer(true)} className='text-white'>
-          <ListIcon size={isMobile ? '20' : '32'} />
-        </Button>
-        <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-          {DrawerList}
-        </Drawer>
+        <div className="flex items-center">
+          <div className="flex justify-end px-3">
+            <p className="text-white">Bem vindo, Micael</p>
+          </div>
+          <Button onClick={toggleDrawer(true)} className="text-white">
+            <ListIcon size={isMobile ? "20" : "32"} />
+          </Button>
+          <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+            {DrawerList}
+          </Drawer>
+        </div>
       </div>
-    </div>
+
+      {/* Modal de Login */}
+      <Modal open={openLogin} onClose={handleCloseLogin}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 450,
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 5,
+          }}
+        >
+          <div className="flex justify-end px-3">
+            <button onClick={handleCloseLogin}><XCircle size={42} /></button>
+          </div>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" component="div" gutterBottom className="text-center">
+                Login
+              </Typography>
+              <TextField
+                fullWidth
+                label="E-mail"
+                variant="outlined"
+                margin="normal"
+              />
+              <TextField
+                fullWidth
+                label="Senha"
+                variant="outlined"
+                type="password"
+                margin="normal"
+              />
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{ mt: 2 }}
+              >
+                Entrar
+              </Button>
+            </CardContent>
+          </Card>
+        </Box>
+      </Modal>
+    </>
   );
 }
