@@ -1,21 +1,21 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Modal from "@mui/material/Modal"; // Importando o Modal do MUI
-import TextField from "@mui/material/TextField";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { ListIcon } from "lucide-react";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { CashRegister, SignIn, SignOut, XCircle } from "@phosphor-icons/react";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Modal from '@mui/material/Modal'; // Importando o Modal do MUI
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { ListIcon } from 'lucide-react';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { CashRegister, SignIn, SignOut, XCircle } from '@phosphor-icons/react';
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -63,7 +63,7 @@ export default function TemporaryDrawer() {
       <List>
         {["Cadastrar-se"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton> {/* Navegue para a página de registro */}
               <ListItemIcon>
                 <CashRegister size={32}/>
               </ListItemIcon>
