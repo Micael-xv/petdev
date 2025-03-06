@@ -1,21 +1,21 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Modal from '@mui/material/Modal'; // Importando o Modal do MUI
-import TextField from '@mui/material/TextField';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { ListIcon } from 'lucide-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { CashRegister, SignIn, SignOut, XCircle } from '@phosphor-icons/react';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Modal from "@mui/material/Modal"; // Importando o Modal do MUI
+import TextField from "@mui/material/TextField";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { Home, ListIcon } from "lucide-react";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { CashRegister, SignIn, SignOut, XCircle } from "@phosphor-icons/react";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -38,9 +38,21 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
+        {
+          <ListItem key="Home" disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Home size={32} />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItemButton>
+          </ListItem>
+        }
         {!isLoggedIn && (
           <ListItem key="Login" disablePadding>
-            <ListItemButton onClick={handleOpenLogin}> {/* Abre o modal */}
+            <ListItemButton onClick={handleOpenLogin}>
+              {" "}
+              {/* Abre o modal */}
               <ListItemIcon>
                 <SignIn size={32} />
               </ListItemIcon>
@@ -63,9 +75,11 @@ export default function TemporaryDrawer() {
       <List>
         {["Cadastrar-se"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton> {/* Navegue para a página de registro */}
+            <ListItemButton>
+              {" "}
+              {/* Navegue para a página de registro */}
               <ListItemIcon>
-                <CashRegister size={32}/>
+                <CashRegister size={32} />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -103,7 +117,7 @@ export default function TemporaryDrawer() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: isMobile ? "90%" : 'auto',
+            width: isMobile ? "90%" : "auto",
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 4,
@@ -114,11 +128,18 @@ export default function TemporaryDrawer() {
             <div className="flex items-center justify-center w-full">
               <p className="flex justify-center font-bold ml-10">PETDEV</p>
             </div>
-            <button onClick={handleCloseLogin}><XCircle size={42} /></button>
+            <button onClick={handleCloseLogin}>
+              <XCircle size={42} />
+            </button>
           </div>
           <Card className="border-2 border-black">
             <CardContent>
-              <Typography variant="h6" component="div" gutterBottom className="text-center">
+              <Typography
+                variant="h6"
+                component="div"
+                gutterBottom
+                className="text-center"
+              >
                 Login
               </Typography>
               <TextField

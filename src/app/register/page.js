@@ -1,7 +1,7 @@
 export default function Register() {
   return(
     <div>
-      <h1>nada</h1>
+      <h1>Registros</h1>
     </div>
   )
 }
