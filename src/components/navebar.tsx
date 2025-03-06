@@ -8,7 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Modal from "@mui/material/Modal"; // Importando o Modal do MUI
+import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -16,12 +16,13 @@ import Typography from "@mui/material/Typography";
 import { Home, ListIcon } from "lucide-react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { CashRegister, SignIn, SignOut, XCircle } from "@phosphor-icons/react";
+import Link from "next/link"; // Importando o Link do Next.js
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
-  const isMobile = useMediaQuery("(max-width:600px)"); // Define o breakpoint para telas menores que 600px
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false); // Estado para verificar se o usuário está logado
-  const [openLogin, setOpenLogin] = React.useState(false); // Estado para abrir o modal
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [openLogin, setOpenLogin] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -38,21 +39,21 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {
-          <ListItem key="Home" disablePadding>
+        <ListItem key="Home" disablePadding>
+          <Link href="/" passHref>
+            {/* passHref força passar para que seja enviado as propriedades di href */}
             <ListItemButton>
               <ListItemIcon>
                 <Home size={32} />
               </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItemButton>
-          </ListItem>
-        }
+          </Link>
+        </ListItem>
+
         {!isLoggedIn && (
           <ListItem key="Login" disablePadding>
             <ListItemButton onClick={handleOpenLogin}>
-              {" "}
-              {/* Abre o modal */}
               <ListItemIcon>
                 <SignIn size={32} />
               </ListItemIcon>
@@ -60,6 +61,7 @@ export default function TemporaryDrawer() {
             </ListItemButton>
           </ListItem>
         )}
+
         {isLoggedIn && (
           <ListItem key="Logout" disablePadding>
             <ListItemButton>
@@ -73,18 +75,16 @@ export default function TemporaryDrawer() {
       </List>
       <Divider />
       <List>
-        {["Cadastrar-se"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        <ListItem key="Cadastrar-se" disablePadding>
+          <Link href="/register" passHref>
             <ListItemButton>
-              {" "}
-              {/* Navegue para a página de registro */}
               <ListItemIcon>
                 <CashRegister size={32} />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary="Cadastrar-se" />
             </ListItemButton>
-          </ListItem>
-        ))}
+          </Link>
+        </ListItem>
       </List>
     </Box>
   );
