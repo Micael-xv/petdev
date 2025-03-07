@@ -17,6 +17,7 @@ import { Home, ListIcon } from "lucide-react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { CashRegister, SignIn, SignOut, XCircle } from "@phosphor-icons/react";
 import Link from "next/link"; // Importando o Link do Next.js
+import { Tooltip } from "@material-tailwind/react";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -100,9 +101,14 @@ export default function TemporaryDrawer() {
           <div className="flex justify-end px-3">
             {!isMobile && <p className="text-white">Bem vindo, Micael</p>}
           </div>
-          <Button onClick={toggleDrawer(true)} className="text-white">
-            <ListIcon size={isMobile ? "20" : "32"} />
-          </Button>
+          <Tooltip content="Menu">
+            <Button
+              onClick={toggleDrawer(true)}
+              className="object-cover hover:rotate-90 duration-700 text-white"
+            >
+              <ListIcon size={isMobile ? "20" : "32"} />
+            </Button>
+          </Tooltip>
           <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
             {DrawerList}
           </Drawer>
