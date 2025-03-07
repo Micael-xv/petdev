@@ -10,10 +10,23 @@ import {
   useMediaQuery,
   Box,
   Grid,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 export default function BasicCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <Box display="flex" justifyContent="center" alignItems="center" mt={4}>
       <Card
@@ -55,7 +68,6 @@ export default function BasicCard() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  mask="(99) 99999-9999"
                   id="phone"
                   label="Telefone"
                   variant="outlined"
@@ -78,8 +90,22 @@ export default function BasicCard() {
                   id="password"
                   label="Senha"
                   variant="outlined"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   fullWidth
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Grid>
             </Grid>
