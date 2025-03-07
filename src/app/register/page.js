@@ -14,6 +14,11 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { IMaskMixin } from "react-imask";
+
+const TextFieldMask = IMaskMixin(({ inputRef, ...props }) => (
+  <TextField {...props} inputRef={inputRef} />
+));
 
 export default function BasicCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -36,7 +41,7 @@ export default function BasicCard() {
           alignItems: "center",
           width: isMobile ? "80%" : "30%",
           height: isMobile ? "50vh" : "80vh",
-          border: "3px solid #e0e0e0",
+          border: "2px solid #151316",
         }}
       >
         <CardContent>
@@ -67,7 +72,23 @@ export default function BasicCard() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <TextFieldMask
+                  mask="000.000.000-00"
+                  definitions={{
+                    0: /[0-9]/,
+                  }}
+                  id="cpf"
+                  label="CPF"
+                  variant="outlined"
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextFieldMask
+                  mask="(00) 00000-0000"
+                  definitions={{
+                    0: /[0-9]/,
+                  }}
                   id="phone"
                   label="Telefone"
                   variant="outlined"
@@ -81,9 +102,6 @@ export default function BasicCard() {
                   variant="outlined"
                   fullWidth
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField id="cpf" label="CPF" variant="outlined" fullWidth />
               </Grid>
               <Grid item xs={12}>
                 <TextField
