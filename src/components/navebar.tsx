@@ -132,10 +132,12 @@ export default function TemporaryDrawer() {
         >
           <div className="flex justify-end pb-5">
             <div className="flex items-center justify-center w-full">
-              <p className="flex justify-center font-bold ml-10">PETDEV</p>
+              <p className="flex justify-center font-bold ml-10 text-2xl">
+                PETDEV
+              </p>
             </div>
             <button onClick={handleCloseLogin}>
-              <XCircle size={42} />
+              <XCircle color="red" size={42} />
             </button>
           </div>
           <Card className="border-2 border-black">
@@ -144,7 +146,7 @@ export default function TemporaryDrawer() {
                 variant="h6"
                 component="div"
                 gutterBottom
-                className="text-center"
+                className="text-center font-bold"
               >
                 Login
               </Typography>
@@ -164,7 +166,7 @@ export default function TemporaryDrawer() {
               <Button
                 fullWidth
                 variant="contained"
-                color="primary"
+                className="bg-green-600"
                 sx={{ mt: 2 }}
               >
                 Entrar

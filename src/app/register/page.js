@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { IMaskMixin } from "react-imask";
+import Link from "next/link";
 
 const TextFieldMask = IMaskMixin(({ inputRef, ...props }) => (
   <TextField {...props} inputRef={inputRef} />
@@ -39,8 +40,8 @@ export default function BasicCard() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: isMobile ? "80%" : "30%",
-          height: isMobile ? "50vh" : "80vh",
+          width: isMobile ? "92%" : "30%",
+          height: isMobile ? "75vh" : "85vh",
           border: "2px solid #151316",
         }}
       >
@@ -129,8 +130,13 @@ export default function BasicCard() {
             </Grid>
           </Box>
 
-          <CardActions sx={{ justifyContent: "center" }}>
-            <Button variant="contained" className="bg-green-500">
+          <CardActions
+            sx={{
+              justifyContent: "center",
+              marginTop: isMobile ? "10%" : "5%",
+            }}
+          >
+            <Button variant="contained" className="bg-green-500" href="/">
               Registrar
             </Button>
           </CardActions>
