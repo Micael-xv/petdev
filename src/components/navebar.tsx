@@ -163,6 +163,12 @@ export default function TemporaryDrawer() {
                 type="password"
                 margin="normal"
               />
+              <Typography
+                variant="body2"
+                className="text-right cursor-pointer text-blue-500"
+              >
+                Esqueceu sua Senha? Clique aqui
+              </Typography>
               <Button
                 fullWidth
                 variant="contained"

@@ -136,7 +136,7 @@ export default function BasicCard() {
               marginTop: isMobile ? "10%" : "5%",
             }}
           >
-            <Button variant="contained" className="bg-green-500" href="/">
+            <Button variant="contained" className="bg-green-500">
               Registrar
             </Button>
           </CardActions>
