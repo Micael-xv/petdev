@@ -174,14 +174,17 @@ export default function TemporaryDrawer() {
               >
                 Entrar
               </Button>
-              <Button
-                fullWidth
-                variant="contained"
-                className="bg-red-500"
-                sx={{ mt: 2 }}
-              >
-                Registrar-se
-              </Button>
+              <Link href={"/register"} passHref>
+                <Button
+                  onClick={handleCloseLogin}
+                  fullWidth
+                  variant="contained"
+                  className="bg-red-500"
+                  sx={{ mt: 2 }}
+                >
+                  Registrar-se
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </Box>
