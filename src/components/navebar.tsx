@@ -176,7 +176,6 @@ export default function TemporaryDrawer() {
               </Button>
               <Link href={"/register"} passHref>
                 <Button
-                  onClick={handleCloseLogin}
                   fullWidth
                   variant="contained"
                   className="bg-red-500"

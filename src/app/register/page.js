@@ -24,6 +24,15 @@ const TextFieldMask = IMaskMixin(({ inputRef, ...props }) => (
 export default function BasicCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
   const [showPassword, setShowPassword] = React.useState(false);
+  const [showConfPassword, setConfPassword] = React.useState(false);
+
+  const confirmPassword = () => {
+    setConfPassword(!showConfPassword);
+  };
+
+  const mouseConfirmPassword = (event) => {
+    event.preventDefault();
+  };
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -56,14 +65,6 @@ export default function BasicCard() {
           </Typography>
           <Box mt={4} width="100%">
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  id="username"
-                  label="Nome de usuário"
-                  variant="outlined"
-                  fullWidth
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   id="name"
@@ -127,6 +128,33 @@ export default function BasicCard() {
                   }}
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  id="password"
+                  label="confime sua senha"
+                  variant="outlined"
+                  type={showConfPassword ? "text" : "password"}
+                  fullWidth
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={confirmPassword}
+                          onMouseDown={mouseConfirmPassword}
+                          edge="end"
+                        >
+                          {showConfPassword ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
             </Grid>
           </Box>
 
@@ -137,7 +165,7 @@ export default function BasicCard() {
             }}
           >
             <Button variant="contained" className="bg-green-500">
-              Registrar
+              Cadastrar
             </Button>
           </CardActions>
         </CardContent>
