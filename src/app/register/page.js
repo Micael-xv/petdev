@@ -130,7 +130,7 @@ export default function BasicCard() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  id="password"
+                  id="confPassword"
                   label="confime sua senha"
                   variant="outlined"
                   type={showConfPassword ? "text" : "password"}
