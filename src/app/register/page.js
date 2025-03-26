@@ -169,12 +169,14 @@ export default function BasicCard() {
               Cadastrar
             </Button>
           </CardActions>
-          <Button
-            variant="contained"
-            className="bg-green-500 d-flex justify-end rounded-3xl"
-          >
-            <SkipBackCircle size={32} />
-          </Button>
+          <Link href="/">
+            <button
+              variant="contained"
+              className="bg-green-500 d-flex justify-center rounded-full -mt-2"
+            >
+              <SkipBackCircle size={32} className="text-white" />
+            </button>
+          </Link>
         </CardContent>
       </Card>
     </Box>
