@@ -164,7 +164,7 @@ export default function TemporaryDrawer() {
                 margin="normal"
               />
               <Typography className="text-right text-xs cursor-pointer text-blue-500">
-                Esqueceu sua Senha? Clique aqui
+                Esqueceu sua Senha? Clique aqui!
               </Typography>
               <Button
                 fullWidth
