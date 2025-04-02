@@ -115,7 +115,6 @@ export default function TemporaryDrawer() {
         </div>
       </div>
 
-      {/* Modal de Login */}
       <Modal open={openLogin} onClose={handleCloseLogin}>
         <Box
           sx={{
