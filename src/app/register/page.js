@@ -17,6 +17,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { IMaskMixin } from "react-imask";
 import Link from "next/link";
 import { SkipBackCircle } from "@phosphor-icons/react";
+import { Tooltip } from "@material-tailwind/react";
 
 const TextFieldMask = IMaskMixin(({ inputRef, ...props }) => (
   <TextField {...props} inputRef={inputRef} />
@@ -169,14 +170,16 @@ export default function BasicCard() {
               Cadastrar
             </Button>
           </CardActions>
-          <Link href="/">
-            <button
-              variant="contained"
-              className="bg-green-500 d-flex justify-center rounded-full -mt-2"
-            >
-              <SkipBackCircle size={32} className="text-white" />
-            </button>
-          </Link>
+          <Tooltip className="-mt-4" content="Voltar">
+            <Link href="/">
+              <button
+                variant="contained"
+                className="bg-green-500 d-flex justify-center rounded-full -mt-2"
+              >
+                <SkipBackCircle size={32} className="text-white" />
+              </button>
+            </Link>
+          </Tooltip>
         </CardContent>
       </Card>
     </Box>
