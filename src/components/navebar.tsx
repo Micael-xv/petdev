@@ -41,15 +41,12 @@ export default function TemporaryDrawer() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         <ListItem key="Home" disablePadding>
-          <Link href="/" passHref>
-            {/* passHref força passar para que seja enviado as propriedades di href */}
-            <ListItemButton>
-              <ListItemIcon>
-                <Home size={32} />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </Link>
+          <ListItemButton onClick={() => (window.location.href = "/")}>
+            <ListItemIcon>
+              <Home size={32} />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItemButton>
         </ListItem>
 
         {!isLoggedIn && (
@@ -77,14 +74,12 @@ export default function TemporaryDrawer() {
       <Divider />
       <List>
         <ListItem key="Cadastrar-se" disablePadding>
-          <Link href="/register" passHref>
-            <ListItemButton>
-              <ListItemIcon>
-                <CashRegister size={32} />
-              </ListItemIcon>
-              <ListItemText primary="Cadastrar-se" />
-            </ListItemButton>
-          </Link>
+          <ListItemButton onClick={() => (window.location.href = "/register")}>
+            <ListItemIcon>
+              <CashRegister size={32} />
+            </ListItemIcon>
+            <ListItemText primary="Cadastrar-se" />
+          </ListItemButton>
         </ListItem>
       </List>
     </Box>
