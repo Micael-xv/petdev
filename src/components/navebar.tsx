@@ -16,7 +16,6 @@ import Typography from "@mui/material/Typography";
 import { Home, ListIcon } from "lucide-react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { CashRegister, SignIn, SignOut, XCircle } from "@phosphor-icons/react";
-import Link from "next/link"; // Importando o Link do Next.js
 import { Tooltip } from "@material-tailwind/react";
 
 export default function TemporaryDrawer() {
@@ -168,17 +167,18 @@ export default function TemporaryDrawer() {
               >
                 Entrar
               </Button>
-              <Link href={"/register"} passHref>
-                <Button
-                  fullWidth
-                  onClick={handleCloseLogin}
-                  variant="contained"
-                  className="bg-red-500"
-                  sx={{ mt: 2 }}
-                >
-                  Registrar-se
-                </Button>
-              </Link>
+              <Button
+                fullWidth
+                onClick={() => {
+                  handleCloseLogin();
+                  window.location.href = "/register";
+                }}
+                variant="contained"
+                className="bg-red-500"
+                sx={{ mt: 2 }}
+              >
+                Registrar-se
+              </Button>
             </CardContent>
           </Card>
         </Box>
