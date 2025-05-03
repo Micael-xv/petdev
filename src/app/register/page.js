@@ -157,7 +157,7 @@ export default function BasicCard() {
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={handleEmailValidation}
                   error={emailError}
-                  helperText={emailError ? "Insira um email válido" : ""}
+                  helperText={emailError ? "O email deve conter @" : ""}
                 />
               </Grid>
               <Grid item xs={12}>
